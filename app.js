@@ -26,7 +26,11 @@ exibirMensagemInicial();
 
 function verificarChute() {
     let chute = document.querySelector('input').value;
-    if (chute == numeroSecreto) {   
+    if (chute > numeroLimite){
+        exibirTextoNaTela('p', `Você digitou um número maior que ${numeroLimite}, tente novamente!`);
+    } else if (chute == '') {
+        exibirTextoNaTela('p', 'Você não digitou nenhum número, tente novamente!');
+    } else if (chute == numeroSecreto) {   
         exibirTextoNaTela('h1', 'Acertou!');
         let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
         let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
@@ -40,9 +44,10 @@ function verificarChute() {
             exibirTextoNaTela('p', 'O número secreto é maior');
         }
 
+        
+    }
         tentativas++;
         limparCampo();
-    }
 }
 
 function gerarNumeroAleatorio() {
@@ -71,4 +76,5 @@ function reiniciarJogo() {
     tentativas = 1;
     exibirMensagemInicial();
     document.getElementById('reiniciar').setAttribute('disabled', 'true');
+
 }
