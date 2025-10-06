@@ -43,11 +43,11 @@ function verificarChute() {
         else {
             exibirTextoNaTela('p', 'O número secreto é maior');
         }
-
         
-    }
         tentativas++;
         limparCampo();
+    }
+     
 }
 
 function gerarNumeroAleatorio() {
@@ -78,3 +78,4 @@ function reiniciarJogo() {
     document.getElementById('reiniciar').setAttribute('disabled', 'true');
 
 }
+
